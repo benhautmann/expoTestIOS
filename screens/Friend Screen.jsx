@@ -2,11 +2,11 @@
 import { StyleSheet, Text, View, Button } from 'react-native';
 
 
-export default function HomeScreen({ navigation }) {
+export default function FriendScreen({ navigation }) {
     return (
         <View style={styles.container}>
-            <Text>Liste von Kontakten</Text>
-            <Button title="Gehe zu Kontakten" onPress={() => navigation.navigate("Friend")} />
+            <Text>DetailAnsicht</Text>
+            <Button title="Gehe zurück" onPress={() => navigation.goBack()} />
         </View>
     );
 }

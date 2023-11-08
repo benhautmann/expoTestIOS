@@ -1,12 +1,26 @@
 import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './screens/HomeScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import * as Icon from "@expo/vector-icons"
+import FriendScreen from './screens/Friend Screen';
 
+const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-export default function Navigation() {
+export default function HomeStack() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Friend" component={FriendScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
+}
+
+function Navigation() {
   return (
     <NavigationContainer>
 
