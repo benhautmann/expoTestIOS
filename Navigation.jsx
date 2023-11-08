@@ -9,18 +9,16 @@ import FriendScreen from './screens/Friend Screen';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-export default function HomeStack() {
+function HomeStack() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Friend" component={FriendScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Stack.Navigator screenOptions={{ headerStyle: { backgroundColor: "aliceblue" } }}>
+      <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Friend" component={FriendScreen} options={({ route }) => { return { title: route.params.name } }} />
+    </Stack.Navigator>
   )
 }
 
-function Navigation() {
+export default function Navigation() {
   return (
     <NavigationContainer>
 
@@ -35,11 +33,12 @@ function Navigation() {
             return (<Icon.Ionicons name={icon} size={size} color={color} />);
           },
           tabBarActiveTintColor: "orange",
-          tabBarStyle: { backgroundColor: "aliceblue" }
+          tabBarStyle: { backgroundColor: "aliceblue" },
+          headerShown: false
         };
       }}>
 
-        <Tab.Screen name="Home" component={HomeScreen}
+        <Tab.Screen name="Home" component={HomeStack}
           options={{
             title: "Freunde"
           }} />

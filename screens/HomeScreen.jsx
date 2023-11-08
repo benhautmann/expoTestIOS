@@ -6,7 +6,8 @@ export default function HomeScreen({ navigation }) {
     return (
         <View style={styles.container}>
             <Text>Liste von Kontakten</Text>
-            <Button title="Gehe zu Kontakten" onPress={() => navigation.navigate("Friend")} />
+            <Button title="Gehe zu Alice" onPress={() => navigation.navigate("Friend", { name: "Alice" })} />
+            <Button title="Gehe zu Bob" onPress={() => navigation.navigate("Friend", { name: "Bob" })} />
         </View>
     );
 }

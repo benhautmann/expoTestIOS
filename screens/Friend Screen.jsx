@@ -2,10 +2,11 @@
 import { StyleSheet, Text, View, Button } from 'react-native';
 
 
-export default function FriendScreen({ navigation }) {
+export default function FriendScreen({ navigation, route }) {
+    const { name } = route.params;
     return (
         <View style={styles.container}>
-            <Text>DetailAnsicht</Text>
+            <Text>{name}</Text>
             <Button title="Gehe zurück" onPress={() => navigation.goBack()} />
         </View>
     );
