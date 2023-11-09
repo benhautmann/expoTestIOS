@@ -1,5 +1,5 @@
 
-import { StyleSheet, Text, View, Button, FlatList } from 'react-native';
+import { StyleSheet, View, FlatList } from 'react-native';
 import FriendListItem from '../components/FriendListItem';
 
 
@@ -7,14 +7,16 @@ export default function HomeScreen({ navigation }) {
     return (
         <View style={styles.container}>
             <FlatList data={[
-                { name: "Alice" },
-                { name: "Bob" },
-                { name: "Jane" },
-                { name: "Joe" },
+                { first: "Alice", last: "Smith", email: "test1@example.de" },
+                { first: "Bob", last: "Smith", email: "test2@example.de" },
+                { first: "Jane", last: "Smith", email: "test3@example.de" },
+                { first: "Joe", last: "Smith", email: "test4@example.de" },
+
             ]} renderItem={({ item }) => {
-                return <FriendListItem friend={item} onPress={() => navigation.navigate("Friend", { name: item.name })} />
+                return <FriendListItem friend={item} onPress={() => navigation.navigate("Friend", { friend: item })} />
+
             }}
-                keyExtractor={(item) => item.name}
+                keyExtractor={(item) => item.email}
                 ItemSeparatorComponent={<View style={styles.listSeperator} />}
             />
         </View>
@@ -26,8 +28,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
+
         paddingTop: 50,
     },
     listSeperator: {

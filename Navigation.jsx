@@ -13,7 +13,11 @@ function HomeStack() {
   return (
     <Stack.Navigator screenOptions={{ headerStyle: { backgroundColor: "aliceblue" } }}>
       <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="Friend" component={FriendScreen} options={({ route }) => { return { title: route.params.name } }} />
+      <Stack.Screen name="Friend" component={FriendScreen} options={({ route }) => {
+        return {
+          title: `${route.params.friend.first} ${route.params.friend.last}`
+        }
+      }} />
     </Stack.Navigator>
   )
 }
@@ -22,6 +26,7 @@ export default function Navigation() {
   return (
     <NavigationContainer>
 
+      {/* Hier wird für die beiden Screens allgemeines erstellt */}
       <Tab.Navigator screenOptions={({ route }) => {
         // screenOptions erwartet eine Funktion, diese setzt für jeden Tab.Screen eine Option ein
         // hier wird mit route überprüft, welcher Tab aktiv ist und setzt mit focused ein outline oder normales icon
