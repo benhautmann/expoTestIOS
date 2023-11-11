@@ -1,6 +1,7 @@
 
 import { StyleSheet, View, FlatList } from 'react-native';
 import FriendListItem from '../components/FriendListItem';
+// nur für Commit
 
 
 export default function HomeScreen({ navigation }) {
