@@ -15,7 +15,7 @@ function HomeStack() {
       <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false }} />
       <Stack.Screen name="Friend" component={FriendScreen} options={({ route }) => {
         return {
-          title: `${route.params.friend.first} ${route.params.friend.last}`
+          title: `${route.params.friend.name.first} ${route.params.friend.name.last}`
         }
       }} />
     </Stack.Navigator>

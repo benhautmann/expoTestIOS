@@ -7,9 +7,9 @@ export default function FriendListItem({ friend, onPress }) {
 
     return (
         <Pressable style={styles.container} onPress={onPress}>
-            <Image style={styles.image} source={require("../assets/lucyVerkleinert.png")} />
+            <Image style={styles.image} source={{ uri: friend.picture.thumbnail }} />
             <View style={styles.info}>
-                <Text style={styles.name}>{friend.first} {friend.last}</Text>
+                <Text style={styles.name}>{friend.name.first} {friend.name.last}</Text>
                 <Text style={styles.email}>{friend.email}</Text>
             </View>
 
